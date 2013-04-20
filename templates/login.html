@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% block title %}
+<title>Войти</title>
+{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="offset4">
+        <form class="form-horizontal" action="" method="post">
+            {% csrf_token %}
+            {% for error in errors %}
+            <div class="alert alert-error">{{ error|linebreaks }}</div>
+            {% endfor %}
+            <div class="control-group">
+                <h4>Логин:</h4>
+                <input class="span4" name="username" type="text" />
+            </div>
+            <div class="control-group">
+                <h4>Пароль:</h4>
+                <input class="span4" name="userpass" type="password" />
+            </div>
+            <input class="btn btn-large offset1" type="submit" value="Войти" />
+        </form>
+    </div>
+</div>
+{% endblock %}

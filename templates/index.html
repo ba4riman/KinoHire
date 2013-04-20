@@ -1,0 +1,76 @@
+{% load staticfiles %}
+{% load comments %}
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <script type="text/javascript" href="{% static 'js/bootstrap/bootstrap.min.css' %}"></script>
+        <script type="text/javascript" href="{% static 'js/script.js"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        {% block title %}<title>Главная страница</title>{% endblock %}
+    </head>
+    <body>
+        {% block menu %}
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="span2">
+                            <a class="brand" href="{% url index %}">KinoHire</a>
+                        </div>
+                        <form class="navbar-form pull-left offset1">
+                            <input type="text" class="search-query" placeholder="Search">
+                            <button type="submit" class="btn">Найти</button>
+                        </form>
+                        <div class="pull-right">
+                            <ul class="nav">
+                                {% if user.is_active %}
+                                <li class="divider-vertical"></li>
+                                <li>
+                                    <a href="#">{{ auth_user }}</a>
+                                </li>
+                                <li class="divider-vertical"></li>
+                                <li>
+                                    <a href="{% url logout %}">Выйти</a>
+                                </li>
+                                {% else %}
+                                <li class="divider-vertical"></li>  
+                                <li>
+                                    <a href="{% url log %}">Вход</a>
+                                </li>
+                                <li class="divider-vertical"></li>
+                                <li>
+                                    <a href="{% url reg %}">Регистрация</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+        <div class="container fone">
+            {% block content %}
+            <div class="row">
+                {% for movies in movie reversed %}
+                <div class="span3 film-info">
+                    <img class="img-rounded" src="{{ movies.poster.url }}" />
+                </div>
+                <div class="span9 film-info">
+                    <span><a class="alter-link" href="{{ movies.id }}">{{ movies.title|upper }}</a></span>
+                    <span><small>Страна: {{ movies.country }}</small></span>
+                    <span><small>Жанр: {{ movies.genre }}</small></span>
+                    <span><small>Режиссер: {{ movies.director }}</small></span>
+                    <span><small>В ролях: {{ movies.actor }}</small></span>
+                    <span>{{ movies.description }}</span>
+                    <span><em>Премьера в Украине: {{ movies.year_release }}</em></span>
+                </div>
+                {% endfor %}
+            </div>
+            {% endblock %}
+            {% block comment %}{% endblock %}
+        </div>
+    </body>
+</html>

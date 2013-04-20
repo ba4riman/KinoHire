@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+{% load comments %}
+{% block content %}
+    {% for movies in movie %}
+    <div class="row">
+        <div class="span3 film-info">
+            <img class="img-rounded" src="{{ movies.poster.url }}" />
+        </div>
+        <div class="span9 film-info">
+            <span><strong>{{ movies.title|upper }}</strong></span>
+            <span><small>Страна: {{ movies.country }}</small></span>
+            <span><small>Жанр: {{ movies.genre }}</small></span>
+            <span><small>Режиссер: {{ movies.director }}</small></span>
+            <span><small>В ролях: {{ movies.actor }}</small></span>
+            <span>{{ movies.description }}</span>
+            <span><em>Премьера в Украине: {{ movies.year_release }}</em></span>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}

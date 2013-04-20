@@ -1,0 +1,7 @@
+{% extends "post.html" %}
+{% block comments %}
+	{% for post in posts %}
+	<h2>{{ post.timestamp }}</h2>
+	{% render_comment_form for post %}
+	{% endfor %}
+{% endblock %}

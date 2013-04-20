@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+{% block title %}
+<title>Регистрация</title>
+{% endblock %}
+{% block content %}
+<form class="form-horizontal" action="" method="post">
+    {% csrf_token %}
+    <div class="control-group">
+    {% if errors %}
+        {% for error in errors %}
+        <div class="alert alert-error">{{ error|linebreaks }}</div>
+        {% endfor %}
+    {% endif %}
+    </div>
+    <div class="control-group">
+        <label class="control-label">Логин:</label>
+        <div class="controls"><input class="span2" name="login" type="text" /></div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">E-mail:</label>
+        <div class="controls"><input class="span3" name="email" type="text" /></div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Пароль:</label>
+        <div class="controls"><input class="span3" name="password" type="password" /></div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Повторите пароль:</label>
+        <div class="controls"><input class="span3" name="password_again" type="password" /></div>
+    </div>
+    <div class="control-group">
+        <div class="controls"><input class="btn" type="submit" value="Зарегестрировать" /></div>
+    </div>
+</form>
+{% endblock %}
