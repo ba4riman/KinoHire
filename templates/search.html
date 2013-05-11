@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+{% block content %}
+    {% if error %}
+        <div class="alert alert-error">{{ error }}</div>
+    {% endif %}
+    {% if search %}
+        <div class="alert alert-info">Найдено по запросу: {{ search }}</div>
+    {% endif %}
+    {% if result_movie %}
+        {% for query in result_movie %}
+            <div class="row">
+                <div class="span3 film-info">
+                    <img class="img-rounded" src="{{ query.poster.url }}" />
+                </div>
+                <div class="span9 film-info">
+                    <span>{{ query.title|upper }}</span>
+                    <span><small>Страна: {{ query.country }}</small></span>
+                    <span><small>Жанр: {{ query.genre }}</small></span>
+                    <span><small>Режиссер: {{ query.director }}</small></span>
+                    <span><small>В ролях: {{ query.actor }}</small></span>
+                    <p>{{ query.description }}</p>
+                    <span><em>Премьера в Украине: {{ query.year_release }}</em></span>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

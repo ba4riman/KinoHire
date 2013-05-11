@@ -52,6 +52,15 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal('cinema', ['Actor'])
 
+        # Adding model 'BlogPost'
+        db.create_table('cinema_blogpost', (
+            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('title', self.gf('django.db.models.fields.CharField')(max_length=150)),
+            ('body', self.gf('django.db.models.fields.TextField')()),
+            ('timestamp', self.gf('django.db.models.fields.DateTimeField')()),
+        ))
+        db.send_create_signal('cinema', ['BlogPost'])
+
 
     def backwards(self, orm):
         # Deleting model 'Movie'
@@ -69,6 +78,9 @@ class Migration(SchemaMigration):
         # Deleting model 'Actor'
         db.delete_table('cinema_actor')
 
+        # Deleting model 'BlogPost'
+        db.delete_table('cinema_blogpost')
+
 
     models = {
         'cinema.actor': {
@@ -76,6 +88,13 @@ class Migration(SchemaMigration):
             'first_name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
+        },
+        'cinema.blogpost': {
+            'Meta': {'ordering': "('-timestamp',)", 'object_name': 'BlogPost'},
+            'body': ('django.db.models.fields.TextField', [], {}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'timestamp': ('django.db.models.fields.DateTimeField', [], {}),
+            'title': ('django.db.models.fields.CharField', [], {'max_length': '150'})
         },
         'cinema.country': {
             'Meta': {'object_name': 'Country'},

@@ -15,6 +15,12 @@
             <span>{{ movies.description }}</span>
             <span><em>Премьера в Украине: {{ movies.year_release }}</em></span>
         </div>
+        <div class="span11 offset1">
+            <form action="" method="post">
+                <h3>{{ auth_user }}</h3>
+                <textarea class="span8" rows="5"></textarea>
+            </form>
+        </div>
     </div>
     {% endfor %}
 {% endblock %}

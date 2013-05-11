@@ -40,6 +40,7 @@ class Actor(models.Model):
 		return u'%s %s' % (self.first_name, self.last_name)
 
 class BlogPost(models.Model):
+	id_post = models.ForeignKey('Movie')
 	title = models.CharField(max_length=150)
 	body = models.TextField()
 	timestamp = models.DateTimeField()
