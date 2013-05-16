@@ -4,8 +4,16 @@
         <div class="alert alert-error">{{ error }}</div>
     {% endif %}
     {% if search %}
-        <div class="alert alert-info">Найдено по запросу: {{ search }}</div>
+        <div class="alert alert-info">
+            {% if result_movie %}
+                Найдено по запросу:
+            {% else %}
+                По данному запросу ничего не найдено:
+            {% endif %}
+            <strong>{{ search }}</strong>
+        </div>
     {% endif %}
+    <h1>{{ not_found }}</h1>
     {% if result_movie %}
         {% for query in result_movie %}
             <div class="row">

@@ -15,10 +15,21 @@
             <span>{{ movies.description }}</span>
             <span><em>Премьера в Украине: {{ movies.year_release }}</em></span>
         </div>
-        <div class="span11 offset1">
+        <div class="span9 offset3">
+            {% for posts in get_post %}
+            <div class="alert">
+                {{ posts.body }}
+            </div>
+            {% endfor %}
             <form action="" method="post">
-                <h3>{{ auth_user }}</h3>
-                <textarea class="span8" rows="5"></textarea>
+                {% csrf_token %}
+                <!--<h4>{{ auth_user }}</h4>-->
+                <div class="control-group">
+                    <textarea class="span9" name="text_post" rows="5"></textarea>
+                </div>
+                <div class="control-group">
+                    <input class="btn" type="submit" value="Написать" />
+                </div>
             </form>
         </div>
     </div>
