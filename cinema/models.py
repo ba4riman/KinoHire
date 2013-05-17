@@ -42,6 +42,8 @@ class Actor(models.Model):
 class BlogPost(models.Model):
 	id_post = models.IntegerField()
 	body = models.TextField()
+	username = models.CharField(max_length=100)
+	time = models.DateTimeField()
 
 	def __unicode__(self):
 		return self.body

@@ -7,6 +7,9 @@ from cinema.models import Movie, BlogPost
 from django.contrib.comments.models import Comment
 from cinema.user_register import username
 from django.db.models import Q
+from django.contrib import auth
+from django.contrib.auth.models import User
+import datetime
 
 # Вывод данных о фильмах на главную
 def index(request):
@@ -21,7 +24,10 @@ def post(request, id_movie):
 		if not request.POST.get('text_post', ''):
 			errors.append('Введите название комментария')
 		if not errors:
-			post = BlogPost.objects.create(body=request.POST['text_post'], id_post=id_movie)
+			auth_user = None
+			if request.user.is_authenticated():
+				auth_user = request.user.username
+			post = BlogPost.objects.create(body=request.POST['text_post'], id_post=id_movie, username=auth_user, time=datetime.datetime.now())
 			post.save()
 	get_post = BlogPost.objects.filter(id_post__in=id_movie)
 	return render_to_response('post.html', {'movie': movie, 'get_post': get_post}, context_instance=RequestContext(request, processors=[username]))
@@ -45,10 +51,10 @@ def search(request):
 				return render_to_response('search.html', {
 					'search': search,
 					'not_found': 'Sorry =|'
-					})
+					}, context_instance=RequestContext(request, processors=[username]))
 			else:
 				return render_to_response('search.html', {
 					'result_movie': result_movie,
 					'search': search
-					})
+					}, context_instance=RequestContext(request, processors=[username]))
 	return render_to_response('search.html', {'error': error}, context_instance=RequestContext(request, processors=[username]))

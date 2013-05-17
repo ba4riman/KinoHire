@@ -21,7 +21,7 @@
                     <img class="img-rounded" src="{{ query.poster.url }}" />
                 </div>
                 <div class="span9 film-info">
-                    <span>{{ query.title|upper }}</span>
+                    <span><a class="alter-link" href="/cinema/main/{{ query.id }}">{{ query.title|upper }}</a></span>
                     <span><small>Страна: {{ query.country }}</small></span>
                     <span><small>Жанр: {{ query.genre }}</small></span>
                     <span><small>Режиссер: {{ query.director }}</small></span>
