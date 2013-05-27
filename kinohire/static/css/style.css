@@ -1,6 +1,15 @@
-.center
-{
-	margin: 0 auto;
+.navbar-fix {
+	margin-bottom: 0 !important;
+}
+
+.banner {
+	height: 300px;
+	padding-top: 5px;
+	background: url(../img/concrete.jpg);
+}
+
+.margin-top {
+	margin-top: 5%;
 }
 
 .film-info > span
@@ -32,4 +41,159 @@
 .margin-vertical
 {
 	margin: 2.5% 0;
+}
+
+.padding
+{
+	padding: 50px;
+}
+
+/*Test plugin*/
+.cs-text {
+    position: relative;
+    width: 930px;
+    height: 100px;
+    margin: 100px auto;
+    cursor: pointer;
+}
+
+.cs-text > span {
+    perspective: 170px;
+    -webkit-perspective: 170px;
+    float: left;
+    position: relative;
+}
+
+.cs-text > span:first-child,
+.cs-text > span:last-child {
+    z-index: 1;
+}
+ 
+.cs-text > span:nth-child(2),
+.cs-text > span:nth-child(9){
+    z-index: 2;
+}
+ 
+.cs-text > span:nth-child(3),
+.cs-text > span:nth-child(8){
+    z-index: 3;
+}
+
+.cs-text > span:nth-child(4),
+.cs-text > span:nth-child(7){
+    z-index: 4;
+}
+ 
+.cs-text > span:nth-child(5),
+.cs-text > span:nth-child(6){
+    z-index: 5;
+}
+
+.cs-text span span {
+    display: block;
+    background: url(../images/scratch-texture.png), linear-gradient(to right, #00b7ea 0%,#009ec3 100%);
+    box-shadow:
+        -1px 0 2px rgba(255,255,255,0.4),
+        -2px 0 0 #00adda,
+        -2px 7px 9px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow:
+        -1px 0 2px rgba(255,255,255,0.4),
+        -2px 0 0 #00adda,
+        -2px 7px 9px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-shadow: -1px -1px 2px rgba(0,0,0,0.6);
+    -webkit-text-shadow: -1px -1px 2px rgba(0,0,0,0.6);
+    width: 90px;
+    height: 120px;
+    font-weight: 700;
+    line-height: 150px;
+    font-size: 100px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.cs-text > span:nth-child(n+5) span {
+    background: url(../img/scratch-texture.png), linear-gradient(to right, #009ec3 0%,#00b7ea 100%);
+    box-shadow:
+        1px 0 2px rgba(255,255,255,0.4),
+        2px 0 0 #00adda,
+        -2px 7px 9px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow:
+        1px 0 2px rgba(255,255,255,0.4),
+        2px 0 0 #00adda,
+        -2px 7px 9px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+    -webkit-text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+
+.cs-text > span:nth-child(5) span{
+    transform: translateZ(40px) rotateY(30deg);
+    -moz-transform: translateZ(40px) rotateY(30deg);
+    -webkit-transform: translateZ(40px) rotateY(30deg);
+}
+ 
+.cs-text > span:nth-child(6) span{
+    transform: translateZ(40px) rotateY(-30deg);
+    -moz-transform: translateZ(40px) rotateY(-30deg);
+    -webkit-transform: translateZ(40px) rotateY(-30deg);
+}
+ 
+.cs-text > span:nth-child(4) span{
+    transform: translateZ(30px) rotateY(30deg);
+    -moz-transform: translateZ(30px) rotateY(30deg);
+    -webkit-transform: translateZ(30px) rotateY(30deg);
+}
+ 
+.cs-text > span:nth-child(7) span{
+    transform: translateZ(30px) rotateY(-30deg);
+    -moz-transform: translateZ(30px) rotateY(-30deg);
+    -webkit-transform: translateZ(30px) rotateY(-30deg);
+}
+ 
+.cs-text > span:nth-child(3) span{
+    transform: translateZ(20px) rotateY(20deg);
+    -moz-transform: translateZ(20px) rotateY(20deg);
+    -webkit-transform: translateZ(20px) rotateY(20deg);
+}
+ 
+.cs-text > span:nth-child(8) span{
+    transform: translateZ(20px) rotateY(-20deg);
+    -moz-transform: translateZ(20px) rotateY(-20deg);
+    -webkit-transform: translateZ(20px) rotateY(-20deg);
+}
+
+.cs-text > span:nth-child(2) span{
+    transform: translateZ(10px) rotateY(10deg);
+    -moz-transform: translateZ(10px) rotateY(10deg);
+    -webkit-transform: translateZ(10px) rotateY(10deg);
+}
+ 
+.cs-text > span:nth-child(9) span{
+    transform: translateZ(10px) rotateY(-10deg);
+    -moz-transform: translateZ(10px) rotateY(-10deg);
+    -webkit-transform: translateZ(10px) rotateY(-10deg);
+}
+
+.cs-text > span:first-child span{
+    transform: translateZ(5px) rotateY(5deg);
+    -moz-transform: translateZ(5px) rotateY(5deg);
+    -webkit-transform: translateZ(5px) rotateY(5deg);
+}
+ 
+.cs-text > span:last-child span{
+    transform: translateZ(5px) rotateY(-5deg);
+    -moz-transform: translateZ(5px) rotateY(-5deg);
+    -webkit-transform: translateZ(5px) rotateY(-5deg);
+}
+
+.cs-text > span:nth-child(-n+4) {
+    transform: translateX(14px);
+    -moz-transform: translateX(14px);
+    -webkit-transform: translateX(14px);
+}
+ 
+.cs-text > span:nth-child(n+5) {
+    transform: translateX(-14px);
+    -moz-transform: translateX(-14px);
+    -webkit-transform: translateX(-14px);
 }

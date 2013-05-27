@@ -1,18 +1,19 @@
 {% load staticfiles %}
-{% load comments %}
 <!DOCTYPE html>
 <html lang="ru">
     <head>
         <meta charset="utf-8" />
-        <script type="text/javascript" href="{% static 'js/bootstrap/bootstrap.min.css' %}"></script>
-        <script type="text/javascript" href="{% static 'js/script.js"></script>
+        <script type="text/javascript" src="{% static 'js/jquery-1.10.0.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/jquery.lettering-0.6.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
         <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
         {% block title %}<title>Главная страница</title>{% endblock %}
     </head>
     <body>
         {% block menu %}
-        <div class="navbar">
+        <div class="navbar navbar-fix">
             <div class="navbar-inner">
                 <div class="container">
                     <div class="row">
@@ -52,7 +53,10 @@
             </div>
         </div>
         {% endblock %}
-        <div class="container fone">
+        <div>
+            <h2 class="cs-text" id="cs-text">Киноинформ</h2>
+        </div>
+        <div class="container margin-top">
             {% block content %}
             <div class="row">
                 {% for movies in movie reversed %}

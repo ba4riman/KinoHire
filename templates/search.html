@@ -15,7 +15,7 @@
     {% endif %}
     <h1>{{ not_found }}</h1>
     {% if result_movie %}
-        {% for query in result_movie %}
+        {% for query in result_movie reversed %}
             <div class="row">
                 <div class="span3 film-info">
                     <img class="img-rounded" src="{{ query.poster.url }}" />
