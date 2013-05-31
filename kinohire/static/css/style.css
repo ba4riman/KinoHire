@@ -2,12 +2,6 @@
 	margin-bottom: 0 !important;
 }
 
-.banner {
-	height: 300px;
-	padding-top: 5px;
-	background: url(../img/concrete.jpg);
-}
-
 .margin-top {
 	margin-top: 5%;
 }
@@ -60,6 +54,7 @@
 .cs-text > span {
     perspective: 170px;
     -webkit-perspective: 170px;
+    -o-perspective: 170px;
     float: left;
     position: relative;
 }
@@ -91,7 +86,8 @@
 
 .cs-text span span {
     display: block;
-    background: url(../images/scratch-texture.png), linear-gradient(to right, #00b7ea 0%,#009ec3 100%);
+    background: url(../img/scratch-texture.png), linear-gradient(to right, #00b7ea 0%,#009ec3 100%);
+    -webkit-background: url(../img/scratch-texture.png), linear-gradient(to right, #00b7ea 0%,#009ec3 100%);
     box-shadow:
         -1px 0 2px rgba(255,255,255,0.4),
         -2px 0 0 #00adda,
@@ -114,6 +110,7 @@
 
 .cs-text > span:nth-child(n+5) span {
     background: url(../img/scratch-texture.png), linear-gradient(to right, #009ec3 0%,#00b7ea 100%);
+    -webkit-background: url(../img/scratch-texture.png), -webkit-linear-gradient(to right, #009ec3 0%,#00b7ea 100%);
     box-shadow:
         1px 0 2px rgba(255,255,255,0.4),
         2px 0 0 #00adda,
@@ -128,72 +125,84 @@
 
 .cs-text > span:nth-child(5) span{
     transform: translateZ(40px) rotateY(30deg);
+    -o-transform: translateZ(40px) rotateY(30deg);
     -moz-transform: translateZ(40px) rotateY(30deg);
     -webkit-transform: translateZ(40px) rotateY(30deg);
 }
  
 .cs-text > span:nth-child(6) span{
     transform: translateZ(40px) rotateY(-30deg);
+    -o-transform: translateZ(40px) rotateY(-30deg);
     -moz-transform: translateZ(40px) rotateY(-30deg);
     -webkit-transform: translateZ(40px) rotateY(-30deg);
 }
  
 .cs-text > span:nth-child(4) span{
     transform: translateZ(30px) rotateY(30deg);
+    -o-transform: translateZ(30px) rotateY(30deg);
     -moz-transform: translateZ(30px) rotateY(30deg);
     -webkit-transform: translateZ(30px) rotateY(30deg);
 }
  
 .cs-text > span:nth-child(7) span{
     transform: translateZ(30px) rotateY(-30deg);
+    -o-transform: translateZ(30px) rotateY(-30deg);
     -moz-transform: translateZ(30px) rotateY(-30deg);
     -webkit-transform: translateZ(30px) rotateY(-30deg);
 }
  
 .cs-text > span:nth-child(3) span{
     transform: translateZ(20px) rotateY(20deg);
+    -o-transform: translateZ(20px) rotateY(20deg);
     -moz-transform: translateZ(20px) rotateY(20deg);
     -webkit-transform: translateZ(20px) rotateY(20deg);
 }
  
 .cs-text > span:nth-child(8) span{
     transform: translateZ(20px) rotateY(-20deg);
+    -o-transform: translateZ(20px) rotateY(-20deg);
     -moz-transform: translateZ(20px) rotateY(-20deg);
     -webkit-transform: translateZ(20px) rotateY(-20deg);
 }
 
 .cs-text > span:nth-child(2) span{
     transform: translateZ(10px) rotateY(10deg);
+    -o-transform: translateZ(10px) rotateY(10deg);
     -moz-transform: translateZ(10px) rotateY(10deg);
     -webkit-transform: translateZ(10px) rotateY(10deg);
 }
  
 .cs-text > span:nth-child(9) span{
     transform: translateZ(10px) rotateY(-10deg);
+    -o-transform: translateZ(10px) rotateY(-10deg);
     -moz-transform: translateZ(10px) rotateY(-10deg);
     -webkit-transform: translateZ(10px) rotateY(-10deg);
 }
 
 .cs-text > span:first-child span{
     transform: translateZ(5px) rotateY(5deg);
+    -o-transform: translateZ(5px) rotateY(5deg);
     -moz-transform: translateZ(5px) rotateY(5deg);
     -webkit-transform: translateZ(5px) rotateY(5deg);
 }
  
 .cs-text > span:last-child span{
     transform: translateZ(5px) rotateY(-5deg);
+    -o-transform: translateZ(5px) rotateY(-5deg);
     -moz-transform: translateZ(5px) rotateY(-5deg);
     -webkit-transform: translateZ(5px) rotateY(-5deg);
 }
 
 .cs-text > span:nth-child(-n+4) {
     transform: translateX(14px);
+    -o-transform: translateX(14px);
     -moz-transform: translateX(14px);
     -webkit-transform: translateX(14px);
 }
  
 .cs-text > span:nth-child(n+5) {
     transform: translateX(-14px);
+    -o-transform: translateX(-14px);
     -moz-transform: translateX(-14px);
     -webkit-transform: translateX(-14px);
 }

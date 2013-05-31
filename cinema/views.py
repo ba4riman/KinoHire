@@ -3,7 +3,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect
-from cinema.models import Movie, BlogPost
+from cinema.models import Movie, BlogPost, Likes
 from django.contrib.comments.models import Comment
 from cinema.user_register import username
 from django.db.models import Q
@@ -58,3 +58,11 @@ def search(request):
 					'search': search
 					}, context_instance=RequestContext(request, processors=[username]))
 	return render_to_response('search.html', {'error': error}, context_instance=RequestContext(request, processors=[username]))
+
+# Положительная оценка фильма
+def like(request):
+	like = Likes.objects.filter(like__isnull=True)
+	if like:
+		like_create = Likes.objects.create(like=1)
+		like_create.save()
+	return HttpResponseRedirect('/cinema/main/')

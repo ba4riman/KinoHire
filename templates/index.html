@@ -5,9 +5,11 @@
         <meta charset="utf-8" />
         <script type="text/javascript" src="{% static 'js/jquery-1.10.0.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/jquery.lettering-0.6.min.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/share42.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
-        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-responsive.min.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
         {% block title %}<title>Главная страница</title>{% endblock %}
     </head>
@@ -53,9 +55,7 @@
             </div>
         </div>
         {% endblock %}
-        <div>
-            <h2 class="cs-text" id="cs-text">Киноинформ</h2>
-        </div>
+        <a href="{% url index %}"><h2 class="cs-text" id="cs-text">Киноинформ</h2></a>
         <div class="container margin-top">
             {% block content %}
             <div class="row">
@@ -71,6 +71,7 @@
                     <span><small>В ролях: {{ movies.actor }}</small></span>
                     <p>{{ movies.description }}</p>
                     <span><em>Премьера в Украине: {{ movies.year_release }}</em></span>
+                    <div class="footer-icons share share42init" data-path="{% static 'img/' %}"></div>
                     <ul class="nav nav-list"><li class="divider"></li></ul>
                 </div>
                 {% endfor %}

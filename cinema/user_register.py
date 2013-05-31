@@ -25,6 +25,9 @@ def registration(request):
 		if not errors:
 			user = User.objects.create_user(username=request.POST['login'], email=request.POST['email'], password=request.POST['password'])
 			user.save()
+			login = auth.authenticate(username=request.POST['login'], password=request.POST['password'])
+			if login is not None and login.is_active:
+				auth.login(request, login)
 			return HttpResponseRedirect('/cinema/main/')
 	return render_to_response('registration.html', {
 		'errors': errors,

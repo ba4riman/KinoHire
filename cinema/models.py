@@ -47,3 +47,9 @@ class BlogPost(models.Model):
 
 	def __unicode__(self):
 		return self.body
+
+class Likes(models.Model):
+	like = models.IntegerField()
+
+class Dislikes(models.Model):
+	dislike = models.IntegerField()
