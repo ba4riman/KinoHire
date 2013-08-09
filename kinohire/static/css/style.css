@@ -1,3 +1,7 @@
+body {
+    background: url(../img/scratch-texture.png)
+}
+
 .navbar-fix {
 	margin-bottom: 0 !important;
 }
@@ -13,11 +17,11 @@
 	text-align: justify;
 }
 
-.film-info > img
+.film-info > .poster
 {
 	height: 200px;
 	width: 150px;
-	float: right;
+	/*float: right;*/
 }
 
 .film-info__about

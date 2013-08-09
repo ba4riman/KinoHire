@@ -61,7 +61,13 @@
             <div class="row">
                 {% for movies in movie reversed %}
                 <div class="span3 film-info">
-                    <img class="img-rounded" src="{{ movies.poster.url }}" />
+                    <div class="poster"><img class="img-rounded" src="{{ movies.poster.url }}" /></div>
+                    <div>
+                        <i class="icon-thumbs-up"></i>
+                        <span>0</span>
+                        <i class="icon-thumbs-down"></i>
+                        <span>0</span>
+                    </div>
                 </div>
                 <div class="span9 film-info">
                     <span><a class="alter-link" href="{{ movies.id }}">{{ movies.title|upper }}</a></span>

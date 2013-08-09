@@ -50,6 +50,4 @@ class BlogPost(models.Model):
 
 class Likes(models.Model):
 	like = models.IntegerField()
-
-class Dislikes(models.Model):
 	dislike = models.IntegerField()
