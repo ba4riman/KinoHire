@@ -71,8 +71,20 @@
                 </div>
                 <div class="span9 film-info">
                     <span><a class="alter-link" href="{{ movies.id }}">{{ movies.title|upper }}</a></span>
-                    <span><small>Страна: {{ movies.country }}</small></span>
-                    <span><small>Жанр: {{ movies.genre }}</small></span>
+                    <span><small>
+                        Страна:
+                        {% for countrys in movies.country.all %}
+                            {{ countrys.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </small></span>
+                    
+                    <span><small>
+                        Жанр:
+                        {% for genres in movies.genre.all %}
+                            {{ genres.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </small></span>
+                    
                     <span><small>Режиссер: {{ movies.director }}</small></span>
                     <span><small>В ролях: {{ movies.actor }}</small></span>
                     <p>{{ movies.description }}</p>

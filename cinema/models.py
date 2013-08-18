@@ -5,10 +5,10 @@ class Movie(models.Model):
 	description = models.TextField()
 	year_release = models.DateField(null=True)
 	poster = models.ImageField(upload_to="posters")
-	genre = models.ForeignKey('Genre')
-	country = models.ForeignKey('Country')
-	director = models.ForeignKey('Director')
-	actor = models.ForeignKey('Actor')
+	genre = models.ManyToManyField('Genre')
+	country = models.ManyToManyField('Country')
+	director = models.ManyToManyField('Director')
+	actor = models.ManyToManyField('Actor')
 
 	def __unicode__(self):
 		return self.title
