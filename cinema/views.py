@@ -17,7 +17,7 @@ def index(request):
 	return render_to_response('index.html', {'movie': movie}, context_instance=RequestContext(request, processors=[username]))
 
 # Открывает детальное описание поста с комментариями
-def post(request, id_movie):
+def comment(request, id_movie):
 	movie = Movie.objects.filter(id__in=id_movie)
 	errors = []
 	if request.method == 'POST':
@@ -30,7 +30,7 @@ def post(request, id_movie):
 			post = BlogPost.objects.create(body=request.POST['text_post'], id_post=id_movie, username=auth_user, time=datetime.datetime.now())
 			post.save()
 	get_post = BlogPost.objects.filter(id_post__in=id_movie)
-	return render_to_response('post.html', {'movie': movie, 'get_post': get_post}, context_instance=RequestContext(request, processors=[username]))
+	return render_to_response('comments.html', {'movie': movie, 'get_post': get_post}, context_instance=RequestContext(request, processors=[username]))
 
 # Поиск фильмов по параметрам: название, жанр, страна, актер, режиссер
 def search(request):

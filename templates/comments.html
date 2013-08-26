@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+{% block comment %}
+<div class="span9 offset3">
+    {% for posts in get_post %}
+    <div class="alert">
+        <span class="label">{{ posts.username }}</span>
+        <span class="pull-right">{{ posts.time }}</span>
+        <p class="margin-vertical">{{ posts.body }}</p>
+    </div>
+    {% endfor %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <blockquote><h3>{{ auth_user }}</h3></blockquote>
+        <div class="control-group">
+            <textarea class="span9" name="text_post" rows="5"></textarea>
+        </div>
+        <div class="control-group">
+            <input class="btn" type="submit" value="Написать" />
+        </div>
+    </form>
+</div>
+{% endblock %}

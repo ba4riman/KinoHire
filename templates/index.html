@@ -57,45 +57,51 @@
         {% endblock %}
         <a href="{% url index %}"><h2 class="cs-text" id="cs-text">Киноинформ</h2></a>
         <div class="container margin-top">
-            {% block content %}
             <div class="row">
+            {% block content %}
+            
                 {% for movies in movie reversed %}
                 <div class="span3 film-info">
                     <div class="poster"><img class="img-rounded" src="{{ movies.poster.url }}" /></div>
-                    <div>
-                        <i class="icon-thumbs-up"></i>
-                        <span>0</span>
-                        <i class="icon-thumbs-down"></i>
-                        <span>0</span>
-                    </div>
                 </div>
                 <div class="span9 film-info">
                     <span><a class="alter-link" href="{{ movies.id }}">{{ movies.title|upper }}</a></span>
                     <span><small>
                         Страна:
                         {% for countrys in movies.country.all %}
-                            {{ countrys.name }}{% if not forloop.last %}, {% endif %}
+                            {{ countrys }}{% if not forloop.last %}, {% endif %}
                         {% endfor %}
                     </small></span>
                     
                     <span><small>
                         Жанр:
                         {% for genres in movies.genre.all %}
-                            {{ genres.name }}{% if not forloop.last %}, {% endif %}
+                            {{ genres }}{% if not forloop.last %}, {% endif %}
                         {% endfor %}
                     </small></span>
                     
-                    <span><small>Режиссер: {{ movies.director }}</small></span>
-                    <span><small>В ролях: {{ movies.actor }}</small></span>
+                    <span><small>
+                        Режиссер:
+                        {% for directors in movies.director.all %}
+                            {{ directors }}
+                        {% endfor %}
+                    </small></span>
+
+                    <span><small>
+                        В ролях:
+                        {% for actors in movies.actor.all %}
+                            {{ actors }}
+                        {% endfor %}
+                    </small></span>
                     <p>{{ movies.description }}</p>
                     <span><em>Премьера в Украине: {{ movies.year_release }}</em></span>
                     <div class="footer-icons share share42init" data-path="{% static 'img/' %}"></div>
                     <ul class="nav nav-list"><li class="divider"></li></ul>
                 </div>
                 {% endfor %}
-            </div>
+                {% block comment %}{% endblock %}
             {% endblock %}
-            {% block comment %}{% endblock %}
+            </div>
         </div>
     </body>
 </html>

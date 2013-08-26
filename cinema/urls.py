@@ -3,7 +3,7 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('cinema.views',
 	url(r'^main/$', 'index', name="index"),
-	url(r'^main/(\d{1,3})/$', 'post', name="post"),
+	url(r'^main/(\d{1,3})/$', 'comment', name="comment"),
 	url(r'^main/search/$', 'search', name="search"),
 )
 
